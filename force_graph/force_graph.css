@@ -1,0 +1,12 @@
+.node {
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.link {
+    fill: none;
+}
+
+textPath {
+  display: none;
+}

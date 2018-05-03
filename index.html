@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Religious lobbying website</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js'> </script>
+
+
+  </head>
+  <body>
+
+  <header>
+
+  </header>
+
+  <div id='title'>
+
+  <h1>How religious lobbying can influence the law you have to obey</h1>
+
+</div>
+
+<div id='story'>
+
+  <div class='para1'>
+    <p>Religious organisations spent tens of millions of euros in the last decade to shape European Union policy and law making, according to an analysis of datasets and reports by the European Commission and Parliament.
+    </p>
+
+    <p>Since the creation of the EU, these institutions lobbied by investing money and time on meeting with members of parliament (+campaigns) to advice them on topics that are relevant to update or change the law.
+    </p>
+
+    <p>In the last three years, thousands of religious and non religious bodies spent 2 billion euros on lobbying in the the European Union, according to the EU Transparency Register.
+    </p>
+
+    <p>It is legal for Churches and their affiliated organizations to spend money on lobbying and they are taking this opportunity to address a wide variety of issues and to lobby against legal matter practices like abortion and same-sex marriage.
+    </p>
+  </div>
+
+  <div id="treemap_1">
+        <h2> EU lobbying expenditures by sectors the last three years </h2>
+        <script src='treemap_1/Lobbying d3 graph.js'></script>
+  </div>
+
+  <div class='para2'>
+    <p>Compte tenu de l’importance des créations d’emplois attendues, l’offre de compétences en France, insuffisante
+    (Empirica estime la pénurie en 2017 à 60 000 offres d’emplois non-pourvus), le restera dans les années
+    à venir. D’après l’enquête Besoins en Main d’œuvre de Pôle Emploi de 2017, 58 % des projets
+    d’embauche dans les familles de métiers de l’informatique sont considérés comme « difficiles ». La base de
+    données sur les compétences de l’OCDE, rendue publique en juillet 2017, montre en outre que la France
+    accuse une pénurie importante en compétences techniques dans le domaine de l’informatique et de
+    l’électronique et une pénurie plus mesurée en ingénierie, mécanique et technologie ainsi qu’en télécommunications.
+    </p>
+  </div>
+
+  <div id='treemap_2'>
+
+  <h2>Christian organisations lobbying in the EU</h2>
+
+  <form>
+    <label><input type="radio" name="mode" value="sumByMoney" checked> Money</label>
+    <label><input type="radio" name="mode" value="sumByTime"> Time</label>
+    <label><input type="radio" name="mode" value="sumByMeetings"> Meetings</label>
+  </form>
+
+  <div class='explanation'>
+
+    <p id='explanation_treemap'>The amount of money spent is in euros</p>
+
+    <p id='explanation_treemap'>The amount of time spent is in FTE: Full-Time Equivalent or the number of people working full time</p>
+
+    <p id='explanation_treemap'>The amount of meetings is the total amount of meetings they got with representants of an EU institution</p>
+
+</div>
+
+  <div id='treemap_2_graph'>
+    <script src='treemap_2/treemap.js'></script>
+  </div>
+
+</div>
+
+<div class='para3'>
+  <p>Compte tenu de l’importance des créations d’emplois attendues, l’offre de compétences en France, insuffisante
+  (Empirica estime la pénurie en 2017 à 60 000 offres d’emplois non-pourvus), le restera dans les années
+  à venir. D’après l’enquête Besoins en Main d’œuvre de Pôle Emploi de 2017, 58 % des projets
+  d’embauche dans les familles de métiers de l’informatique sont considérés comme « difficiles ». La base de
+  données sur les compétences de l’OCDE, rendue publique en juillet 2017, montre en outre que la France
+  accuse une pénurie importante en compétences techniques dans le domaine de l’informatique et de
+  l’électronique et une pénurie plus mesurée en ingénierie, mécanique et technologie ainsi qu’en télécommunications.
+  </p>
+</div>
+
+  <div id='barchart'>
+
+    <h2>Christian represents 95% of the lobbying expenditures</h2>
+    <div id='barchart_graph'>
+    </div>
+    <script src='barchart/dominant_religion.js'></script>
+
+  </div>
+
+
+
+  <h2 id='title_campaign'>The main sucessful religious campaigns</h2>
+  <p>The professionalization of religious lobbying coincides with their participation in new debates as the climate change or immigration.
+
+  But Christian lobbyists’ main fight is and will likely remain what we call the Sexual and Reproductive Health and Right (SRHR). This includes abortion, families right, same-sex marriage… When it comes to these topics, they often unify to try to influence the EU law. Indeed, since 2010, they had some significant victories.
+  </p>
+  <div id='campaigns_row1'>
+
+    <div id='campaign_1'>
+      <h3>A, B, C V IRELAND</h3>
+      <p class='para_campaigns'><strong>Goal:</strong>Be allowed to travel to the UK to be aborted because abortions are unlawful in Ireland</p>
+      <p class='para_campaigns'><strong>Who was involved:</strong>three women against the Irish law</p>
+      <p class='para_campaigns'><strong>methods used:</strong>Go in front of European Court of Human Right</p>
+    </div>
+
+    <div id='campaign_2'>
+      <h3>ONE OF US CAMPAIGN</h3>
+      <p class='para_campaigns'><strong>Goal:</strong>stop EU funding for any activities involving the destruction of the human embryo </p>
+      <p class='para_campaigns'><strong>Who was involved:</strong>One of Us Federation - COMECE (Conferences of the European Community) - ECPM (European Christian Political Movement)</p>
+      <p class='para_campaigns'><strong>methods used:</strong>Inform and mobilize the public opinion thanks to active social media campaigns</p>
+    </div>
+
+  </div>
+
+  <div id='campaigns_row2'>
+
+    <div id='campaign_3'>
+      <h3>EDITE ESTRELA REPORT</h3>
+      <p class='para_campaigns'><strong>Goal:</strong>Block a pro-choice report promoting safer abortion and xomen's rights</p>
+      <p class='para_campaigns'><strong>Who was involved:</strong>European Dignity Watch - FAFCE</p>
+      <p class='para_campaigns'><strong>methods used:</strong>mass emailing and social media campaigns</p>
+    </div>
+
+    <div id='campaign_4'>
+      <h3>#DEFUNDIPPF</h3>
+      <p class='para_campaigns'><strong>Goal:</strong>Defund IPPF organisation</p>
+      <p class='para_campaigns'><strong>Who was involved:</strong>One of Us - European Diginty Watch - ADF International</p>
+      <p class='para_campaigns'><strong>methods used:</strong>Social media campaigns, slanders and misinformation</p>
+    </div>
+
+  </div>
+
+  <div class='para_victory'>
+
+  <p>Most of these campaigns were successful for the religious campaigners either by their importance or their result.
+  </p>
+
+  <p>The Edite Estrela report aimed at passing a law to facilitate abortion but the EP finally decided that these decisions should be made by the member states at a national level.
+  </p>
+
+  <p>The ‘One of Us’ campaigns started as a European citizens initiative then backed by churches. Their petition to stop EU funding of activities destructing human embryo gathered 1.5 million signatures online. Although their request has been turned down by the European Commission, they are bringing this decision to the European Court of Justice.
+  </p>
+
+  <p>The A, B, C v Ireland was a victory for Ireland. The European Court of Justice considered that Ireland constitution doesn’t confer a right to abortion except when it could be life-threatening for the future mother.
+  </p>
+
+  <p>#DefundIPPF didn’t lead to the expected result of defunding this organisation, nonetheless, it gave the opportunity to religious lobbyists, affiliated organisations and MEPs to unify and campaign together to try to interfere.
+  </p>
+
+  <p>These campaigns, successful or not are strong example of the power of lobbyists when they unify.</p>
+
+</div>
+
+  <div id='force_directed'>
+
+    <h2>The network of religious lobbyists</h2>
+
+    <div id='force_graph'></div>
+    <script src="simple_force_graph/force-graph.js"></script>
+
+  </div>
+
+</div>
+
+  </body>
+</html>

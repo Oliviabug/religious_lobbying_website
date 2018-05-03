@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lobbying D3 Visualisation</title>
+    <link rel="stylesheet" href="base.css">
+    <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
+</head>
+<style>
+
+body {
+  font: 10px sans-serif;
+  position: relative;
+}
+
+.node {
+  box-sizing: border-box;
+  line-height: 1em;
+  overflow: hidden;
+  position: absolute;
+  white-space: pre;
+  background: orange;
+}
+
+.node-label,
+.node-value {
+  margin: 4px;
+}
+
+.node-value {
+  margin-top: -2px;
+}
+
+.node-value {
+  font-weight: bold;
+}
+
+</style>
+<body>
+  <script>
+
+  var width = 960;
+  var height = 1060;
+
+  var format = d3.format(",d");
+
+  var treemap = d3.treemap()
+  .size([width, height])
+  .padding(1)
+  .round(true);
+
+  d3.csv("Lobbying_orgs_for_d3.csv", function(data) { /*This retrieves the dataset*/
+    console.log(data);
+
+    data.forEach(function(d) { /*The forEach is for the function to go through every single item*/
+      d["Costs (Higher)"] = +d["Costs (Higher)"]; /*This is for when the column names that have a space*/
+    });
+    // console.log(data[0]); /*We choose the rows index*/
+
+    var org_section = d3.nest()
+    .key(function(d) { return d.Section; }).rollup(function(leaves){
+      return d3.sum(leaves, function(d){
+        return d['Costs (Higher)']
+      })
+    })
+    .entries(data);
+
+    console.log(org_section);
+
+
+
+    // var format = d3.formatLocale({
+    //   decimal: ".",
+    //   thousands: ",",
+    //   grouping: [3],
+    //   currency: ["£", ""]
+    // }).format("$,d");
+
+
+
+    var root = d3.hierarchy({values: org_section}, function(d) { return d.values; })
+      .sum(function(d) { return d.value; })
+      .sort(function(a, b) { return b.value - a.value; });
+
+   console.log(root);
+
+      treemap(root);
+
+    var node = d3.select("body")
+      .selectAll(".node")
+      .data(root.leaves())
+      .enter().append("div")
+        .attr("class", "node")
+        .style("left", function(d) { return d.x0 + "px"; })
+        .style("top", function(d) { return d.y0 + "px"; })
+        .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+        .style("height", function(d) { return d.y1 - d.y0 + "px"; });
+
+    console.log(node);
+
+    node.append("div")
+        .attr("class", "node-label")
+        .text(function(d) { return d.data.key; });
+
+    node.append("div")
+        .attr("class", "node-value")
+        .text(function(d) { return format(d.value); });
+
+
+
+
+});
+
+  </script>
+</body>
+</html>

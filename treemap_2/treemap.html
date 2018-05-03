@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js'> </script>
+  <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+
+  <style>
+    body, svg {
+      font: 10px sans-serif;
+      position: relative;
+      font-family: helvetica;
+    }
+
+    h1 {
+      margin-left: 3vw;
+    }
+/*
+    .title {
+      margin-bottom: 3rem;
+    }*/
+
+    .node {
+      margin-top: 5rem;
+      box-sizing: border-box;
+      line-height: 1em;
+      overflow: hidden;
+      position: absolute;
+      white-space: pre;
+      background: orange;
+    }
+
+    div.tooltip {
+      position: absolute;
+      text-align: center;
+      width: 15vw;
+      height: 15vh;
+      padding: 2px;
+      font: 12px sans-serif;
+      background: lightGrey;
+      border: 0px;
+      border-radius: 8px;
+      pointer-events: none;
+  }
+
+    .node-label,
+    .node-value {
+      margin: 4px;
+    }
+
+    .node-value {
+      margin-top: -2px;
+      font-weight: bold;
+    }
+
+    #vis {
+      height: 90vh;
+    }
+
+    .explanation {
+      font-size: .8rem;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class='title'>
+
+
+
+
+
+  </div>
+
+  <div id='vis'>
+  </div>
+
+  <div class='explanation'>
+
+    <p>The amount of money spent in euros</p>
+
+    <p>The amount of time spent is in FTE: Full-Time Equivalent or the number of people working full time</p>
+
+    <p>The amount of meetings is the total amount of meetings they got with representants of an EU institution</p>
+
+</div>
+
+
+  <script>
+
+
+    var width = 960,
+      height = 560;
+
+    var margin = {
+      top: 60,
+      right: 30,
+      left: 30,
+      bottom: 60
+    }
+
+    // Define the div for the tooltip
+    var div = d3.select("#treemap_2_graph").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+
+    var colour_scale = d3.scaleOrdinal().range(colorbrewer.GnBu[9]);
+
+
+
+    var treemap = d3.treemap()
+      .size([width, height])
+      .padding(1)
+      .round(true);
+
+    width = width - margin.left - margin.right;
+    height = height - margin.bottom - margin.top;
+
+    d3.selection.prototype.moveToFront = function() {
+      return this.each(function(){
+        this.parentNode.appendChild(this);
+      });
+    };
+
+
+    d3.csv("religious_expenditures.csv", function(error, data) {
+      if (error) throw error;
+
+      data.forEach(function(d) {
+        d.Higher_cost = +d.Higher_cost;
+        d['lobbyists (FTE)'] = +d['lobbyists (FTE)'];
+
+      });
+
+      colour_scale.domain(data.map(function(d){ return d['organisation name']}))
+
+
+
+
+      d3.selectAll("input")
+        .on("change", changed);
+
+
+      function changed() {
+
+        console.log("changed");
+        console.log(this.value);
+
+        if (this.value === "sumByMoney") {
+          sumByMoney();
+        } else if (this.value === "sumByTime") {
+          sumByTime();
+        } else if(this.value === "sumByMeetings") {
+          sumByMeetings();
+        }
+      }
+
+      function sumByTime() {
+
+
+        var nest = d3.nest()
+          .key(function(d) {
+            return d['organisation name'];
+          })
+          .rollup(function(leaves) {
+            return d3.sum(leaves, function(d) {
+              return d['lobbyists (FTE)'];
+            })
+          });
+
+        draw(nest);
+
+      }
+
+
+      function sumByMoney() {
+
+        var nest = d3.nest()
+          .key(function(d) {
+            return d['organisation name'];
+          })
+          .rollup(function(leaves) {
+            return d3.sum(leaves, function(d) {
+              return d.Higher_cost;
+            })
+          });
+
+        draw(nest);
+
+      }
+
+      function sumByMeetings() {
+
+        var nest = d3.nest()
+          .key(function(d) {
+            return d['organisation name'];
+          })
+          .rollup(function(leaves) {
+            return d3.sum(leaves, function(d) {
+              return d['# of meetings'];
+            })
+          });
+
+        draw(nest);
+
+      }
+
+      function draw(nest) {
+
+        var root = d3.hierarchy({
+            values: nest.entries(data)
+          }, function(d) {
+            return d.values;
+          })
+          .sum(function(d) {
+            return d.value;
+          })
+          .sort(function(a, b) {
+            return b.value - a.value;
+          });
+
+        treemap(root);
+
+
+
+        var nodes = d3.select('#treemap_2_graph')
+          .selectAll(".node")
+          .data(root.leaves())
+
+
+        nodes
+          .exit()
+          .remove();
+
+        var new_nodes = nodes
+          .enter()
+          .append("rect")
+          .attr("class", "node")
+          .style('background', function(d){ console.log(d); console.log(colour_scale(d.key)); return colour_scale(d.data.key); })
+          .attr('id', function(d) {
+            return d.data.key;
+          }).on("mouseover", function(d) {
+            d3.select(this).style('background', 'lightYellow')
+            var node_label = d3.select(this).select('.node-label')
+            node_label.style('font-weight', 'bold')
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            div .text(d.data.key + ': ' + d.data.value)
+                .attr('text-align', 'center')
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            div.moveToFront();
+              })
+        .on("mouseout", function(d) {
+          d3.select(this).style('background', function(d){ console.log(colour_scale(d.key)); return colour_scale(d.data.key); })
+          var node_label = d3.select(this).select('.node-label')
+          node_label.style('font-weight', 'normal')
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+
+        /* */
+
+
+        new_nodes
+          .append("div")
+          .attr('class', 'node-label');
+
+        new_nodes
+          .append('div')
+          .attr('class', 'node-value');
+
+
+        nodes.merge(new_nodes)
+          .style("left", function(d) {
+            return d.x0 + "px";
+          })
+          .style("top", function(d) {
+            return d.y0 + "px";
+          })
+          .style("width", function(d) {
+            return d.x1 - d.x0 + "px";
+          })
+          .style("height", function(d) {
+            return d.y1 - d.y0 + "px";
+          });
+
+
+
+        nodes.merge(new_nodes).select(".node-label")
+          .text(function(d) {
+            return d.data.key;
+          })
+          .style('font-size', '13px');
+
+        nodes.merge(new_nodes).select(".node-value")
+          .text(function(d) {
+            return (d.value);
+          })
+          .style('font-size', '13px');
+      }
+
+    });
+  </script>
+
+</body>
+
+</html>

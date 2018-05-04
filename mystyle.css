@@ -13,9 +13,33 @@ body {
 }
 
  p {
-  margin: 1.5rem 10rem 1.5rem 10rem;
+  margin: 1.5rem 12rem 1.5rem 12rem;
   /*text-align: center;*/
   line-height: 3.5vh;
+}
+
+
+/* for the title div */
+
+#title {
+  display: flex;
+}
+
+.title_left {
+  flex: 0 0 55%;
+  background-color: #333333;
+  margin-bottom: .5vh;
+}
+
+.title_left h1 {
+  text-align: center;
+  justify-content: center;
+  color: white;
+  margin-top: 8vw;
+}
+
+.title_image {
+  flex: 0 0 45%;
 }
 
 /* css for the treemap */

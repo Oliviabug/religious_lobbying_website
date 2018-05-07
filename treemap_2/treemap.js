@@ -101,7 +101,7 @@
             })
           });
 
-        draw(nest);
+        draw(nest, 'FTE');
 
       }
 
@@ -118,7 +118,7 @@
             })
           });
 
-        draw(nest);
+        draw(nest, 'euros');
 
       }
 
@@ -134,11 +134,11 @@
             })
           });
 
-        draw(nest);
+        draw(nest, 'meetings');
 
       }
 
-      function draw(nest) {
+      function draw(nest, ;abel_text) {
 
         var root = d3.hierarchy({
             values: nest.entries(data)
@@ -199,7 +199,7 @@
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div .text(d.data.key + ': ' + d.data.value)
+            div .text(d.data.key + ': ' + d.data.value + ' ' + label_text)
                 .attr('text-align', 'center')
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
@@ -241,7 +241,7 @@
             if(d.x1 - d.x0 < 50) {
               return "";
             } else {
-              return (d.value);
+              return (d.value + ' ' + label_text);
             }
           })
           .style('font-size', '13px')

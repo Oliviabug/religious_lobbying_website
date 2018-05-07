@@ -138,7 +138,7 @@
 
       }
 
-      function draw(nest, ;abel_text) {
+      function draw(nest, label_text) {
 
         var root = d3.hierarchy({
             values: nest.entries(data)

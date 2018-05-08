@@ -2,7 +2,7 @@
 
   // dimensions
 var width = 1000;
-var height = 1000;
+var height = 800;
 
 var margin = {
     top: 50,

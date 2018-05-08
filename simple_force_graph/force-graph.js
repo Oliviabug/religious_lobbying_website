@@ -32,7 +32,7 @@
       .force("collide", d3.forceCollide().radius(1))
       .force("charge", d3.forceManyBody().strength(-5000));
 
-  d3.json("prunedsimplegraph.json", function(error, graph) {
+  d3.json("data.json", function(error, graph) {
 
       console.log(error);
       console.log(graph);

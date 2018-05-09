@@ -144,7 +144,7 @@
             d3.select(this).select(".node-value")
                   .style("font-size", "15px")
                   .style("font-weight", "bold")
-                  .text(function(d) { return "€" + format(d.value) ; });
+                  .text(function(d) { return format(d.value) + ' euros' ; });
 
 
 
@@ -211,7 +211,7 @@
             if(d.x1 - d.x0 < 50) {
               return "";
             } else {
-              return "€" + format(d.value);
+              return format(d.value) + ' euros';
             }
           })
           .style('font-size', '13px')

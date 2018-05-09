@@ -3,8 +3,8 @@ h1 {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 3rem;
-
 }
+
 
 
 body {
@@ -91,6 +91,8 @@ div.tooltip {
 
 #treemap_2_graph {
   margin-top: 2rem;
+  width: 1000;
+  height: 800;
 }
 
 .explanation {

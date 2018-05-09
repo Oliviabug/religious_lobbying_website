@@ -1,6 +1,8 @@
-// dimensions
-var width = 3000;
-var height = 3000;
+(function () {
+
+/// dimensions
+var width = 4000;
+var height = 4000;
 
 var margin = {
     top: 50,
@@ -28,9 +30,9 @@ var simulation = d3.forceSimulation()
     .strength(1))
     .force("center", d3.forceCenter(width/2, height/2))
     .force("collide", d3.forceCollide().radius(1))
-    .force("charge", d3.forceManyBody().strength(-1500));
+    .force("charge", d3.forceManyBody().strength(-2000));
 
-d3.json("data.json", function(error, graph) {
+d3.json("prunedBigGraph.json", function(error, graph) {
 
     console.log(error);
     console.log(graph);
@@ -47,15 +49,7 @@ d3.json("data.json", function(error, graph) {
         .append('path')
         .attr('class', 'link')
         .attr('id', function(d){
-          if(d.hasOwnProperty("Connection")) {
-            return d["Connection"];
-          }
-          else if (d.hasOwnProperty("Role")) {
-            return d["Role"];
-          }
-          else {
-            return "blank"
-          }
+          return d.source + "," + d.target;
         })
         .attr('stroke', "#ddd")
         .attr('stroke-width', function(d){
@@ -63,21 +57,22 @@ d3.json("data.json", function(error, graph) {
         });
 ///Adding Visible linkText
 
+console.log("graph.edges", graph.edges)
+console.log("graph.nodes", graph.nodes)
+console.log("links", links)
+console.log("nodes", nodes)
+
+
+
 var linkText = svg.selectAll('.linkText')
                   .data(links)
                   .enter()
                   .append('text')
                   .append('textPath')
+                  .attr('class', 'linkText')
+                  .style('opacity', 0)
                   .attr("xlink:href", function(d){
-                    if(d.hasOwnProperty("Connection")) {
-                      return '#' + d["Connection"];
-                    }
-                    else if (d.hasOwnProperty("Role")) {
-                      return '#' + d["Role"];
-                    }
-                    else {
-                      return "#blank"
-                    }
+                    return '#' + d.source + "," + d.target;
                   })
                   .style('text-anchor', 'middle')
                   .attr('startOffset', '50%')
@@ -167,8 +162,10 @@ var linkText = svg.selectAll('.linkText')
     }
 
     function mouseOver(d) {
+      console.log("d", d);
         var opacity = 0.1;
         node.style("stroke-opacity", function(o){
+            console.log("node.style", o)
             thisOpacity = isConnected(d, o) ? 1 : opacity;
             return thisOpacity;
         });
@@ -182,16 +179,20 @@ var linkText = svg.selectAll('.linkText')
         link.style('stroke', function(o){
             return o.source === d || o.target === d ? o.source.colour : "#ddd";
         })
-        linkText.style('display', 'inline')
-    }
 
-    function mouseOut(){
-        node.style("stroke-opacity", 1)
-        node.style("fill-opacity", 1)
-        link.style("stroke-opacity", 1)
-        link.style("stroke", "#ddd")
-        linkText.style('display', 'none')
-    }
+
+       linkText.style('opacity', function(o){
+         return o.source === d || o.target === d ? 1 : 0;
+         })
+     }
+
+   function mouseOut(){
+       node.style('stroke-opacity', 1)
+       node.style('fill-opacity', 1)
+       link.style('stroke-opacity', 1)
+       link.style('stroke', '#ddd')
+       linkText.style('opacity', '0')
+   }
 
     function ticked() {
         link.attr("d", function(d){
@@ -232,3 +233,5 @@ var linkText = svg.selectAll('.linkText')
         })
     }
 });
+
+}());

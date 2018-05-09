@@ -101,7 +101,7 @@
             })
           });
 
-        draw(nest);
+        draw(nest, ' FTE');
 
       }
 
@@ -118,7 +118,7 @@
             })
           });
 
-        draw(nest);
+        draw(nest, ' euros');
 
       }
 
@@ -134,7 +134,7 @@
             })
           });
 
-        draw(nest);
+        draw(nest, ' meetings');
 
       }
 
@@ -171,49 +171,46 @@
           .attr("class", "node");
 
 
-        nodes = nodes.merge(new_nodes);
-
-          nodes.append('rect')
-          .style('fill', function(d){ console.log(d); console.log(colour_scale(d.key)); return colour_scale(d.data.key); })
-          .attr('id', function(d) {
-            return d.data.key;
-          })
-          .attr("x", function(d) {
-            return d.x0 + "px";
-          })
-          .attr("y", function(d) {
-            return d.y0 + "px";
-          })
-          .attr("width", function(d) {
-            return d.x1 - d.x0 + "px";
-          })
-          .attr("height", function(d) {
-            return d.y1 - d.y0 + "px";
-          })
+      nodes.merge(new_nodes).append('rect')
+            .attr('id', function(d) {
+              return d.data.key;
+            })
+            .style('fill', function(d){ console.log(colour_scale(d.key)); return colour_scale(d.data.key); })
+            .style("x", function(d) {
+              return d.x0 + "px";
+            })
+            .style("y", function(d) {
+              return d.y0 + "px";
+            })
+            .style("width", function(d) {
+              return d.x1 - d.x0 + "px";
+            })
+            .style("height", function(d) {
+              return d.y1 - d.y0 + "px";
+            })
           .attr('stroke', 'white')
           .attr('stroke-width', '1px')
           .on("mouseover", function(d) {
-            d3.select(this).style('background', 'lightYellow')
+            d3.select(this).style('fill', 'lightYellow')
             var node_label = d3.select(this).select('.node-label')
             node_label.style('font-weight', 'bold')
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div .text(d.data.key + ': ' + d.data.value)
+            div .text(d.data.key + ': ' + d.data.value + label_text)
                 .attr('text-align', 'center')
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             div.moveToFront();
               })
         .on("mouseout", function(d) {
-          d3.select(this).style('background', function(d){ console.log(colour_scale(d.key)); return colour_scale(d.data.key); })
+          d3.select(this).style('fill', function(d){ console.log(colour_scale(d.key)); return colour_scale(d.data.key); })
           var node_label = d3.select(this).select('.node-label')
           node_label.style('font-weight', 'normal')
             div.transition()
                 .duration(500)
                 .style("opacity", 0);
         });
-
 
         nodes = nodes.merge(new_nodes);
 
@@ -241,7 +238,7 @@
             if(d.x1 - d.x0 < 50) {
               return "";
             } else {
-              return (d.value);
+              return (d.value + label_text);
             }
           })
           .style('font-size', '13px')

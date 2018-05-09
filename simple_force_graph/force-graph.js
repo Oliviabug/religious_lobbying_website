@@ -2,7 +2,7 @@
 
   // dimensions
 var width = 1000;
-var height = 800;
+var height = 600;
 
 var margin = {
     top: 50,
@@ -12,7 +12,7 @@ var margin = {
 }
 
 // create an svg to draw in
-var svg = d3.select("body")
+var svg = d3.select("#force_graph")
 .append("svg")
     .attr("width", width)
     .attr("height", height)

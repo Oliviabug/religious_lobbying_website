@@ -1,0 +1,138 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  line-height: 1.5rem;
+}
+
+/* for the title div */
+h1 {
+  font-family: Helvetica;
+  line-height: 3rem;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#title {
+  display: flex;
+  width: 100%;
+}
+
+.title_left {
+  flex: 0 0 55%;
+  background-color: #333333;
+  margin-bottom: .5vh;
+}
+
+.title_left h1 {
+  text-align: center;
+  justify-content: center;
+  color: white;
+  margin-top: 8vw;
+}
+
+.title_image {
+  flex: 0 0 45%;
+}
+
+/* Edit the entire body */
+#story{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 70vw;
+  margin: auto;
+}
+
+/* css for the treemap */
+
+div.tooltip {
+     position: absolute;
+     text-align: center;
+     width: 15vw;
+     height: 20vh;
+     padding: 2px;
+     font: 12px sans-serif;
+     background: lightGrey;
+     border: 0px;
+     border-radius: 8px;
+     pointer-events: none;
+ }
+
+.nodes {
+  box-sizing: border-box;
+  line-height: 1em;
+  overflow: hidden;
+  position: absolute;
+  white-space: pre;
+  margin-top: 6rem;
+  margin-bottom: 5rem;
+  margin-left: 1rem;
+}
+
+.node-label,
+.node-value {
+  overflow-wrap: normal;
+  word-wrap: break-word;
+  margin: 4px;
+}
+
+.node-value {
+  margin-top: 3px;
+}
+
+#treemap_2_graph {
+  margin-top: 2rem;
+}
+
+.explanation {
+  margin-top: 1rem;
+}
+
+#explanation_treemap {
+  margin: 0rem 0rem 0rem 0rem;
+  text-align: left;
+  font-size: .8rem;
+}
+
+/* For barchart */
+/*for the tooltip of the barchart */
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* campaigns section */
+.row{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.campaign {
+   /*flex: 0 0 45%; */
+  margin: 2vw;
+  height: 50vh;
+  border: solid 1px black;
+  border-radius: 10%;
+  width: 25vw;
+}
+
+h3{
+  text-align: center;
+}
+.para_campaigns {
+  margin: 2vh 4vw 2vh 4vw;
+}
+
+/* Align infographics in the center */
+#barchart, #para2, #treemap_1, #campaigns_all, .class{
+  margin: auto;
+}

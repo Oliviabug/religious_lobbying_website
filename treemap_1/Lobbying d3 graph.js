@@ -45,7 +45,7 @@
        .style("opacity", 0);
 
 
-  drawTreeMap("treemap_1/Lobbying_orgs_for_d3.csv");
+  drawTreeMap("Lobbying_orgs_for_d3.csv");
 
   function drawTreeMap(datafile) {
     d3.csv('treemap_1/Lobbying_orgs_for_d3.csv', function(data) { /*This retrieves the dataset*/
@@ -99,7 +99,7 @@
 
 
       var node = d3.select("#treemap_1").select('svg')
-        .selectAll(".node")
+        .selectAll(".nodes")
         .data(root.leaves())
 
       node.exit().remove();
@@ -107,15 +107,16 @@
       var new_nodes = node
         .enter()
         .append("g")
-        .attr("class", "node");
+        .attr("class", "nodes")
+        .attr('stroke', 'white')
+        .attr('stroke-width', '1px');
 
       node = node.merge(new_nodes)
 
       // var new_nodes = node.enter().append("rect")
     node.append('rect')
-          .attr('stroke', 'white')
-          .attr('stroke-width', '1px')
-          .attr("class", "node")
+          .attr("class", "nodes")
+
           .style("x", function(d) { return d.x0 + "px"; })
           .style("y", function(d) { return d.y0 + "px"; })
           .style("width", function(d) { return d.x1 - d.x0 + "px"; })
@@ -124,7 +125,7 @@
           .on("mouseover", function(d){   /*MOUSE OVER*/ /*This allows a change of color in the nodes when the user hovers over with the mouse*/
             var selected_label = d3.select(this).select(".node-label");
             d3.select(this)
-              .style('background', "lightYellow")
+              .style('fill', "lightYellow")
               // .style('overflow', 'visible')
               // .style('z-index', 100);/*Layers in the screen have a default z-index of 1 so if a layer is higher than 1 is gonna show infront of whatever has a lower index*/
             d3.select(this).select(".node-label")
@@ -144,7 +145,7 @@
             d3.select(this).select(".node-value")
                   .style("font-size", "15px")
                   .style("font-weight", "bold")
-                  .text(function(d) { return format(d.value) + ' euros' ; });
+                  .text(function(d) { return "€" + format(d.value) ; });
 
 
 
@@ -153,7 +154,7 @@
           /*This return the original color of the nodes when the user mouse out*/
           .on('mouseout', function(d){
             d3.select(this)/*This is the data we are showing so the squares that have values of money*/
-              .style("background", function(d){ return color(d.data.key);})
+              .style("fill", function(d){ return color(d.data.key);})
               .style('overflow', 'hidden')
               // .style('z-index', 1)
             d3.select(this).select(".node-label")
@@ -190,6 +191,8 @@
           var labels = node
             .append("g")
             .attr('class', 'node-label')
+            .attr('stroke', 'none')
+            .attr('color', 'black')
             .attr('transform', function(d){
                 return 'translate(' + d.x0 + ',' + d.y0 +  ')'
             });

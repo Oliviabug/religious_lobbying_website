@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Religious lobbying website</title>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
-    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js'> </script>
 
+<head>
+  <meta charset="utf-8">
+  <title>Religious lobbying website</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js'>
+  </script>
+</head>
 
-  </head>
-  <body>
+<body>
 
   <header>
 
@@ -21,8 +22,8 @@
 
     <div class='title_left'>
 
-    <h1>How religious lobbying can influence the law</h1>
-    <hr>
+      <h1>How religious lobbying can influence the law</h1>
+      <hr>
 
     </div>
 
@@ -30,199 +31,237 @@
 
       <img src='religious_lobbying.jpeg'>
 
-   </div>
-
- </div>
-
-<div id='story'>
-
-  <div class='para1'>
-    <p>Religious organisations spent tens of millions of euros in the last decade to shape European Union policy and law making, according to an analysis of datasets and reports by the European Commission and Parliament.
-    </p>
-
-    <p>Since the creation of the EU, these institutions lobby by investing money and time to advice members of the European Parliament and European Commission on topics that are relevant to update or change the law.
-    </p>
-
-    <p>In the last three years, thousands of religious and non religious bodies spent 2 billion euros on lobbying in the the European Union, according to the EU Transparency Register.
-    </p>
-
-    <p>It is legal for Churches and their affiliated organizations to spend money on lobbying and they are taking this opportunity to address a wide variety of issues and to lobby against legal matter practices like abortion and same-sex marriage.
-    </p>
-
-    <p>Research on religious lobbying from Dr Lucian N. Leustean, professor at Aston University, showed that there is ‘a widespread perception that religious issues have been absent from the process of European integration’.
-    </p>
-
-    <p>Nonetheless, religious organisations have been present at the EU level since its creation and it’s only in 2007, in the Lisbon Treaty that the unofficial has been made official: religious entities can try to influence the law.
-    </p>
-
-    <p>In 2012, pro-life organisations, including the One of Us campaign and ADF International, opposed a proposal for safer legal abortion, and other issues affecting women’s sexual rights.Due to their efforts, an alternative law was passed that missed the main health concern of the initiative. Besides, this law reaffirmed that religious issues remain under the jurisdiction of EU national member states.
-    </p>
-
-    <p>In the last three years, religious organizations spent 18 million euros on lobbying in the EU. But the organizations expenditure could be even higher, according to Gianluca Sgueo, a research analyst at the European Parliament.
-    </p>
-
-    <p>“Transparency International, and another organisation called corporate Europe Observatory they do checks on the register from time to time, and more often than not they realise the numbers are not there in an appropriate way.”</p>
-  </div>
-
-  <div id='treemap_2'>
-
-  <h2>Christian organisations lobbying in the EU from 2015 to 2017</h2>
-
-  <form>
-    <label><input id='button-money' type="radio" name="mode" value="sumByMoney" checked> Money</label>
-    <label><input id='button-time' type="radio" name="mode" value="sumByTime"> Time</label>
-    <label><input id='button-meetings' type="radio" name="mode" value="sumByMeetings"> Meetings</label>
-  </form>
-
-  <div class='explanation'>
-
-    <p id='explanation_treemap'>The amount of time spent is in FTE: Full-Time Equivalent or the number of people working full time</p>
-
-    <p id='explanation_treemap'>The amount of money spent in euros</p>
-
-    <p id='explanation_treemap'>The amount of meetings is the total amount of meetings each institutions got with representatives of an EU institution</p>
-
-</div>
-
-  <div id='treemap_2_graph'>
-    <script src='treemap_2/treemap.js'></script>
-  </div>
-
-</div>
-
-  <div class='para2'>
-
-    <p>The Church of Sweden spent more than 13 million in lobbying the EU. This is almost three times more than all the other religious organisations together. Asked about this disproportionate amount, Dr Lucian N. Leustean said ‘I would make a connection between national legislation of church-state relations in Sweden and developments at EU level on religious dialogue’.
-    </p>
-
-    <p>Nonetheless, lobbying is not only about money. Meetings  with EU officials  for lobbyists is crucial if they want to shape EU policies. Dr Lucian N. Leustean research reveals that the number of official meetings between EU officials and religious organisations have been up between 1982 and 2008 with a clear dominance of the Catholic and Protestant churches.
-    </p>
-
-    <p>The number of meetings underline the power of the COMECE (Commission of the Bishops' Conferences of the European Community) and the EKD (Evanlegical church in Germany) which are two powerful religious organisations.
-    </p>
-
-    <p>Most of this registered organisations are Christians. In fact, Christian institutions spent 95 % of the total amount of money spent on lobbying these last three years.They are dominating the religious lobbying scene.
-    </p>
-
-  </div>
-
-  <div id='barchart'>
-
-    <h2>Christian organisations account for 95% of the religious lobbying expenditures</h2>
-    <h5>Christians encompass Catholic, Protestant and Orthodox</h5>
-    <div id='barchart_graph'>
-    </div>
-    <script src='barchart/dominant_religion.js'></script>
-
-  </div>
-
-  <div class='para3'>
-
-    <p>Religious organizations registered as such in the transparency register don’t account for the numerous religious-affiliated organizations who also lobby the EU.
-   </p>
-
-   <p>According to the ‘Study for policy makers on opposition to sexual and reproductive health and rights in Europe’ by Elena Zacharenko, many organizations registered as NGOs in the transparency register are in fact defending religious values.
-   </p>
-
-   </div>
-
-   <div id="treemap_1">
-         <h2> Religious organisations are registered under different sections </h2>
-         <script src='treemap_1/Lobbying d3 graph.js'></script>
-   </div>
-
-   <div class='para4'>
-
-   <p>‘The issues is not with the transparency register it is with what the EU defines as an NGO’ explained Gianluca Sgueo. He added that ‘ a body that has some duties, some tasks in the religious spaces can register legally as an NGO’ because of a lack of regulation.
-   </p>
-
-   <p>The Elena Zacharenko report names 20 lobbyists organisations, mostly NGOs, which would have Christian values. If most of them didn’t answer to our questions, The Institute of Bioethics and HazteOir both affirmed that they were not representing any religion.
-   </p>
-
-   <p>The Institute of Bioethics denied any involvement in lobbying activities. “We don’t do lobbying but information, we are journalists” claimed Carine Brochier, project manager at the Institute. As for HazteOir, they declared that ‘HazteOir.org and CitizenGO, as non-religious associations with more than 9 million active citizens: atheists, and believers of different religions, all over the world; we defend life, family, and several freedoms: of speech, religious, of education’.
-   </p>
-
-   <p>Nonetheless, most of these organisations unified with churches to campaign for or against EU policies. </p>
-
- </div>
-
-
-
-
-
-  <h2 id='title_campaign'>The main sucessful religious campaigns</h2>
-  <p>The professionalization of religious lobbying coincides with their participation in new debates as the climate change or immigration.
-
-  But Christian lobbyists’ main fight is and will likely remain what we call the Sexual and Reproductive Health and Right (SRHR). This includes abortion, families right, same-sex marriage… When it comes to these topics, they often unify to try to influence the EU law. Indeed, since 2010, they had some significant victories.
-  </p>
-  <div id='campaigns_row1'>
-
-    <div id='campaign_1'>
-      <h3>A, B, C V IRELAND</h3>
-      <p class='para_campaigns'><strong>Goal: </strong>Be allowed to travel to the UK to be aborted because abortions are unlawful in Ireland</p>
-      <p class='para_campaigns'><strong>Who was involved: </strong>three women against the Irish law</p>
-      <p class='para_campaigns'><strong>methods used: </strong>Go in front of European Court of Human Right</p>
-    </div>
-
-    <div id='campaign_2'>
-      <h3>ONE OF US CAMPAIGN</h3>
-      <p class='para_campaigns'><strong>Goal: </strong>stop EU funding for any activities involving the destruction of the human embryo </p>
-      <p class='para_campaigns'><strong>Who was involved: </strong>One of Us Federation - COMECE (Conferences of the European Community) - ECPM (European Christian Political Movement)</p>
-      <p class='para_campaigns'><strong>methods used: </strong>Inform and mobilize the public opinion thanks to active social media campaigns</p>
     </div>
 
   </div>
 
-  <div id='campaigns_row2'>
+  <div id='story'>
 
-    <div id='campaign_3'>
-      <h3>EDITE ESTRELA REPORT</h3>
-      <p class='para_campaigns'><strong>Goal: </strong>Block a pro-choice report promoting safer abortion and womens' rights</p>
-      <p class='para_campaigns'><strong>Who was involved: </strong>European Dignity Watch - FAFCE</p>
-      <p class='para_campaigns'><strong>methods used: </strong>mass emailing, battle of information, social media campaigns</p>
+    <div id='para1'>
+      <p>Religious organisations spent tens of millions of euros in the last decade to shape European Union policy and law making, according to an analysis of datasets and reports by the European Commission and Parliament.
+        </p>
+
+        <p>Since the creation of the EU, these institutions have invested money and time to advise members of the European Parliament and the European Commission on key topics, in order to influence law.
+        </p>
+
+        <p>In the last three years, thousands of religious and non-religious bodies together spent 2 billion euros on lobbying in the European Union, according to the EU Transparency Register.
+        </p>
+
+        <p>It is legal for Churches and their affiliated organizations to spend money on lobbying. They aim to address a variety of issues, including contentious legal practices like abortion and same-sex marriage.
+        </p>
+
+        <p>Research on religious lobbying by Dr. Lucian N. Leustean, a professor at Aston University, showed that there is ‘a widespread perception that religious issues have been absent from the process of European integration’.
+        </p>
+
+        <p>However, religious organisations have been present at EU level since its creation. The 2007 Lisbon Treaty made the unofficial official, allowing religious entities to try to influence the law. and that is exactly what they are doing.
+        </p>
+
+        <p>In 2012, pro-life organisations, including the One of Us campaign and ADF International, opposed a proposal for safer legal abortion, and other issues affecting women’s sexual rights.Due to their efforts, an alternative law was passed that missed the main health concern of the initiative. Besides, this law reaffirmed that religious issues remain under the jurisdiction of EU national member states.
+        </p>
+
+        <p>In the last three years, religious organizations spent 18 million euros on lobbying in the EU, but the organizations’ expenditure could be even higher, according to Gianluca Sgueo, a research analyst at the European Parliament.
+        </p>
+
+        <p>“Transparency International, and another organization called Corporate Europe Observatory, they do checks on the register from time to time, and more often than not they realize the numbers are not there in an appropriate way.”</p>
+      </div>
+  <!-- ******************************************************************************************************** -->
+      <div id='para2'>
+
+        <h2>Religious organisations lobbying in the EU from 2015 to 2017</h2>
+
+        <form>
+          <label><input type="radio" name="mode" value="sumByMoney" checked> Money</label>
+          <label><input type="radio" name="mode" value="sumByTime"> Time</label>
+          <label><input type="radio" name="mode" value="sumByMeetings"> Meetings</label>
+        </form>
+
+        <div class='explanation'>
+
+          <p id='explanation_treemap'>The amount of time spent is in FTE: Full-Time Equivalent or the number of people working full time</p>
+
+          <p id='explanation_treemap'>The amount of money spent in euros</p>
+
+          <p id='explanation_treemap'>The amount of meetings is the total amount of meetings each institutions got with representatives of an EU institution</p>
+
+        </div>
+
+        <div id='treemap_2_graph'>
+          <script src='treemap_2/treemap.js'></script>
+        </div>
+
+      </div>
+
+      <div id='para3'>
+
+        <p>The Church of Sweden spent more than 13 million on lobbying the EU. This is almost three times more than all other religious organisations put together. When Dr Lucian N. Leustean was questioned about this disproportionate amount, he explained he would make a connection between national legislation of church-state relations in Sweden and developments at EU level on religious dialogue’.
+
+        </p>
+
+        <p>Nonetheless, lobbying is not only about money. Meetings with EU officials are crucial for lobbyists to shape EU policies. Leustean’s research reveals that the number of official meetings between EU officials and religious institutions increased between 1982 and 2008 with Catholic and Protestant churches dominant.
+        </p>
+
+        <p>Over the last three years, the EKD (Evanlegical church in Germany) declared 9 meetings with EU officials and the COMECE (Commission of the Bishops' Conferences of the European Community) declared 5. This is more than twice as many for any other registered religious organisations.
+        </p>
+
+        <p>Most of these registered groups are Christian. In fact, 95% of the total amount of money spent on religious lobbying these last three years came from Christian institutions whereas Christians represent only 76% of the European population. They are dominating the religious lobbying scene.
+        </p>
+
+      </div>
+  <!-- ******************************************************************************************************** -->
+      <div id='barchart'>
+
+        <h2>Christian organisations account for 95% of the religious lobbying expenditures</h2>
+        <div id='barchart_graph'>
+        </div>
+        <script src='barchart/dominant_religion.js'></script>
+
+      </div>
+
+      <div class='para3'>
+
+        <p>The Transparency Register has 11,692 European and international bodies registered as active lobbyists. 51 are recorded as religious institutions and they spent 0.9% of the total amount of lobbying expenditures.
+        </p>
+
+        <p> The register is voluntary, although those who participate gain greater access to higher level figures. It has been criticised for containing inaccurate information, and although there are proposals to make it mandatory, calls for a compulsory register have existed as long as it has, and none have come to pass.
+        </p>
+
+        <p>However, the real number of groups and the amount of money they spent representing particular religious interests are speculated to be much larger.
+
+        </p>
+
+        <p>According to the ‘Study for policy makers on opposition to sexual and reproductive health and rights in Europe’ by Elena Zacharenko, many organizations listed as NGOs and Think Tanks are in fact defending religious values.
+        </p>
+
+      </div>
+
+      <div id="treemap_1">
+        <h2> Religious organisations are registered under different sections </h2>
+        <script src='treemap_1/Lobbying d3 graph.js'></script>
+      </div>
+
+      <div class='para4'>
+
+        <p>Gianluca Sgeuo highlights an issue with EU lobbying policy, explaining: ‘The issue is not with the transparency register. It is with what the EU defines as an NGO’ He added ‘a body that has some duties, some tasks in the religious spaces can register legally as an NGO’ because of a lack of regulation.
+        </p>
+
+        <p>Zacheronko’s report identifies 19 organisations that aim to influence EU law to promote   values, either through lobbying politicians or campaigning to change the opinion of EU citizens. However, 10 of them are not registered as religious organisations in the Transparency Register. When asked to comment, both The Institute of Bioethics and HazteOir claimed not to represent any religion.
+
+        </p>
+
+        <p>The Institute of Bioethics denied any involvement in lobbying activities. “We don’t do lobbying but information, we are journalists” claimed Carine Brochier, the Institute’s project manager. HazteOir responded: ‘HazteOir.org and CitizenGO, as non-religious associations with more than 9 million active citizens: atheists, and believers of different religions, all over the world; we defend life, family, and several freedoms: of speech, religious, of education’.
+        </p>
+
+        <p>Despite these denials,  HazteOir and CitizenGO work alongside explicitly religious groups, such as FAFCE (Federation of Catholic Family Associations in Europe), with whom they co-signed a letter protesting a directive “implementing the principle of equal treatment between persons irrespective of religion or belief, disability, age or sexual orientation”. The Institute of Bioethics’ Honour Committee includes Miroslav Mikolasik and Anna Zaborska, of the both involved in the slovak “Christian Democratic Movement" party.    </p>
+
+      </div>
+
+
+
+  <!-- ******************************************************************************************************** -->
+
+      <h2>The main religious lobbying campaigns since 2010</h2>
+      <p>The professionalization of religious lobbying coincides with their participation in new debates as the climate change or immigration. But Christian lobbyists’ main fight is and will likely remain what we call the Sexual and Reproductive Health and
+        Right (SRHR). This includes abortion, families right, same-sex marriage… When it comes to these topics, they often unify to try to influence the EU law. Indeed, since 2010, they had some significant victories.
+      </p>
+      <div id='campaigns_all'>
+        <div class="row">
+          <div class='campaign'>
+            <h3>A, B, C V IRELAND</h3>
+            <p class='para_campaigns'><strong>Goal: </strong>Be allowed to travel to the UK to be aborted because abortions are unlawful in Ireland</p>
+            <p class='para_campaigns'><strong>Who was involved: </strong>three women against the Irish law</p>
+            <p class='para_campaigns'><strong>methods used: </strong>Go in front of European Court of Human Right</p>
+          </div>
+          <div class='campaign'>
+            <h3>ONE OF US CAMPAIGN</h3>
+            <p class='para_campaigns'><strong>Goal: </strong>stop EU funding for any activities involving the destruction of the human embryo </p>
+            <p class='para_campaigns'><strong>Who was involved: </strong>One of Us Federation - COMECE (Conferences of the European Community) - ECPM (European Christian Political Movement)</p>
+            <p class='para_campaigns'><strong>methods used: </strong>Inform and mobilize the public opinion thanks to active social media campaigns</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class='campaign'>
+            <h3>EDITE ESTRELA REPORT</h3>
+            <p class='para_campaigns'><strong>Goal: </strong>Block a pro-choice report promoting safer abortion and xomen's rights</p>
+            <p class='para_campaigns'><strong>Who was involved: </strong>European Dignity Watch - FAFCE</p>
+            <p class='para_campaigns'><strong>methods used: </strong>mass emailing, battle of information, social media campaigns</p>
+          </div>
+          <div class='campaign'>
+            <h3>#DEFUNDIPPF</h3>
+            <p class='para_campaigns'><strong>Goal: </strong>Defund IPPF organisation</p>
+            <p class='para_campaigns'><strong>Who was involved: </strong>One of Us - European Diginty Watch - ADF International</p>
+            <p class='para_campaigns'><strong>methods used: </strong>Social media campaigns, battle of information</p>
+          </div>
+        </div>
+      </div>
+
+      <div class='para_victory'>
+
+        <p>Most of these campaigns were successful for the religious campaigners either by their importance or their result.
+        </p>
+
+        <p>The Edite Estrela report aimed to pass a law facilitating abortion across all EU because it’s still difficult or even illegal to obtain abortion in many countries, such as as Ireland or Poland. But the European Parliament decided that such decisions should be made by member states at a national level.
+        </p>
+
+        <p>The ‘One of Us’ campaign started as a European Citizens’ Initiative, but was quickly backed by churches. They launched a petition to stop any EU funding for projects that included destroying human embryos, which gathered over 1.5 million signatures online. The European Commission rejected this proposal, causing the campaign groups to bring their case to the European Court of Justice.
+        </p>
+
+        <p>The A, B, C v Ireland was a victory for Ireland. The European Court of Justice considered that Ireland constitution doesn’t confer a right to abortion except when it could be life-threatening for the future mother.
+        </p>
+
+        <p>#DefundIPPF didn’t lead to the expected result of defunding this organisation, nonetheless, it gave the opportunity to religious lobbyists, affiliated organisations and MEPs to unify and campaign together to try to interfere.
+        </p>
+
+        <p>These campaigns, successful or not are strong example of the power of lobbyists when they unify.</p>
+        <p>Increasingly, lobbyists use such social media campaigns to influence law indirectly. Gianluca Sgueo described this as an ‘unofficial’ way to lobby, ‘to basically put the public opinion against the decision from the institutions’. Successful or not, these campaigns demonstrate the impact lobbyists are capable of when unified.
+        </p>
+
     </div>
 
-    <div id='campaign_4'>
-      <h3>#DEFUNDIPPF</h3>
-      <p class='para_campaigns'><strong>Goal: </strong>Defund IPPF organisation</p>
-      <p class='para_campaigns'><strong>Who was involved: </strong>One of Us - European Diginty Watch - ADF International</p>
-      <p class='para_campaigns'><strong>methods used: </strong>Social media campaigns, battle of information</p>
+    <div id='force_directed'>
+      <h2>The network of religious lobbyists</h2>
+      <p>
+        These campaigns bring together different campaigning groups, and highlight the connections between them. Dr. Leustean’s research sees a growing trend of professionalisation in religious lobbying, and he claims the “last ten years have been characterised by a change from proactive relations to the institutionalisation of religious dialogue in the EU.”
+      </p>
+      <p>
+        Gianluca Sgueo broardens this, arguing that “one of the trends I think everyone agrees, that has developed over the last 10 years is the fact that, NGOs, specifically, is much more organised in terms of skills to lobby the EU institutions”.
+      </p>
+      <p>
+        This has resulted in strong relationships between influential individuals, including MEPs, lobbying organisations and religious groups, with key individuals linking many groups. For instance, former Italian MEP Luca Volonte is CEO and founder of Nova Terrae Foundation, Chairman of the Dignitatis Humanae Institute, and Advisor to the International Centre for Law, Family and Life (ICOLF). In 2016, Volente allegedly accepted approximately €2.4 million from Azerbaijani officials in exchange for “his support of political positions of the state” at the Council.
+      </p>
+      <p>
+        Nova Terrae Foundation’s network includes Ireland’s ‘The Iona Institute’, a socially conservative Catholic advocacy group,. The Foundation is also partners with ECLJ, Hatze Oir, The Heritage Foundation, Fondation Jerome Lejeune, and organises petitions with CitizenGo.
+      </p>
+      <h2>Networking the EU's Religious Lobbyists</h2>
+      <div class="graph" id="graph_scroll">
+        <style>
+          .node {
+            stroke: #000;
+            stroke-width: 1px;
+          }
+
+          .link {
+            fill: none;
+          }
+
+          textPath {
+            opacity: 0;
+          }
+
+          .graph {
+            width: 100%;
+            height: 80vh;
+            overflow-y: auto;
+            border: 1px solid black;
+          }
+        </style>
+        <script src="simple_force_graph/pbScript.js"></script>
+      </div>
+
+
     </div>
 
   </div>
 
-  <div class='para_victory'>
+</body>
 
-  <p>Most of these campaigns were successful for the religious campaigners either by their importance or their result.
-  </p>
-
-  <p>The Edite Estrela report aimed at passing a law to facilitate abortion but the EP finally decided that these decisions should be made by the member states at a national level.
-  </p>
-
-  <p>The ‘One of Us’ campaigns started as a European citizens initiative then backed by churches. Their petition to stop EU funding of activities destructing human embryo gathered 1.5 million signatures online. Although their request has been turned down by the European Commission, they are bringing this decision to the European Court of Justice.
-  </p>
-
-  <p>The A, B, C v Ireland was a victory for Ireland. The European Court of Justice considered that Ireland constitution doesn’t confer a right to abortion except when it could be life-threatening for the future mother.
-  </p>
-
-  <p>#DefundIPPF didn’t lead to the expected result of defunding this organisation, nonetheless, it gave the opportunity to religious lobbyists, affiliated organisations and MEPs to unify and campaign together to try to interfere.
-  </p>
-
-  <p>These campaigns, successful or not are strong example of the power of lobbyists when they unify.</p>
-
-</div>
-
-  <div id='force_directed'>
-
-    <h2>The network of religious lobbyists</h2>
-
-    <div id='force_graph'></div>
-    <script src="simple_force_graph/force-graph.js"></script>
-
-  </div>
-  <p id='link_big_graph'><a href='force_graph/prunedBig.html'>Click here to explore the whole network</a></p>
-
-</div>
-
-  </body>
 </html>

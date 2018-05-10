@@ -130,6 +130,7 @@ h3{
 }
 .para_campaigns {
   margin: 2vh 4vw 2vh 4vw;
+  line-height: 1rem;
 }
 
 /* Align infographics in the center */
